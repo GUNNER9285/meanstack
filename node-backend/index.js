@@ -1,6 +1,3 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
 let express = require('express'),
     path = require('path'),
     mongoose = require('mongoose'),
@@ -22,7 +19,7 @@ mongoose.connect(mongoDb.db, {
 const bookRoute = require('./routes/book.routes')
 
 const app = express();
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }))
@@ -53,6 +50,8 @@ app.use((req, res, next) => {
 // error handler
 app.use(function(err, req, res, next) {
     console.error(err.messge);
-    if (!err.statusCode) err.statusCode = 500;
+    if (!err.statusCode) {
+        err.statusCode = 500;
+    }
     res.status(err.statusCode).send(err.message);
 })
