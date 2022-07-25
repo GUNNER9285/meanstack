@@ -1,1 +1,26 @@
-<p>add-book works!</p>
+<div class="container mt-3">
+    <h1>Add Data</h1>
+    <div class="row justify contain center mt-3">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" class="form-control" formControlName="name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input type="text" class="form-control" formControlName="price" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <input type="text" class="form-control" formControlName="description" required>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary btn-black">
+                        Add Book
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
